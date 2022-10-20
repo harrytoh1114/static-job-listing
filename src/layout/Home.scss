@@ -1,0 +1,95 @@
+@import "../App.scss";
+
+.job {
+  height: 100%;
+  position: relative;
+
+  &__header {
+    background-color: #5da5a4;
+  }
+
+  &__filter {
+    background-color: $color-white;
+    padding: 2rem 3.5rem;
+    width: 80%;
+    max-width: 120rem;
+    border-radius: 5px;
+    box-shadow: 0 1.5rem 2rem rgba($color-secondary-darker, 0.2);
+    border-left: 3px solid transparent;
+    transition: $transition;
+    position: absolute;
+    top: 11.5rem;
+    left: 50%;
+    transform: translateX(-50%);
+
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    animation: 0.2s fadeIn forwards ease-in-out;
+
+    &-clear {
+        margin-left: auto;
+        border: none;
+        background-color: transparent;
+        color: $color-primary;
+        text-decoration: underline;
+        font-weight: 700;
+        // padding-bottom: 1px;
+        // border-bottom: 1px solid $color-primary;
+        cursor: pointer;
+
+        &:hover {
+
+        }
+    }
+  }
+
+  &__filter-item {
+    width: min-content;
+    border-radius: 5px;
+    background-color: $color-secondary-filters;
+    cursor: pointer;
+    transition: $transition;
+    overflow: hidden;
+
+    display: flex;
+    align-items: center;
+
+    &:not(:last-child) {
+      margin-right: 2rem;
+    }
+
+    &--text {
+      padding: 1.2rem;
+    }
+
+    &--remove {
+      background-color: $color-primary;
+      padding: 1rem;
+      transition: $transition;
+    }
+
+    &:hover &--remove {
+      background-color: $color-secondary-darker;
+    }
+  }
+
+  &__filter-remove {
+    background-color: $color-primary;
+    padding: 1.2rem;
+  }
+
+  &__inner {
+    margin: 8rem 0;
+  }
+}
+
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+
+  100% {
+    opacity: 1;
+  }
+}

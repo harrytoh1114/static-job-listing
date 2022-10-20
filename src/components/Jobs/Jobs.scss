@@ -1,0 +1,125 @@
+@import "../../App.scss";
+
+.card {
+  background-color: $color-white;
+  padding: 3.5rem;
+  width: 80%;
+  max-width: 120rem;
+  margin: 3rem auto;
+  border-radius: 5px;
+  box-shadow: 0 1.5rem 2rem rgba($color-secondary-darker, 0.2);
+  border-left: 3px solid transparent;
+  transition: $transition;
+  position: relative;
+
+  &__filter {
+    position: absolute;
+  }
+
+  &:hover {
+    border-left: 3px solid $color-primary;
+  }
+
+  &__inner {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  &__main {
+    display: flex;
+  }
+
+  &__img svg {
+    border-radius: 50%;
+  }
+
+  &__detail {
+    text-align: left;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    margin-left: 3rem;
+  }
+
+  &__company-tag {
+    display: flex;
+    align-items: center;
+  }
+
+  &__company {
+    font-size: $font-default;
+    color: $color-primary;
+  }
+
+  &__job {
+    font-size: 2.5rem;
+    font-weight: 700;
+    cursor: pointer;
+    transition: $transition;
+
+    &:hover {
+      color: $color-primary;
+    }
+  }
+
+  &__featured {
+    margin-left: 2rem;
+    color: $color-white;
+    display: flex;
+    align-items: center;
+
+    &--primary {
+      background-color: $color-primary;
+      padding: 0.8rem;
+      border-radius: 5rem;
+      transition: $transition;
+      cursor: pointer;
+
+      &:hover {
+        filter: brightness(115%);
+      }
+    }
+
+    &--secondary {
+      background-color: $color-black;
+      padding: 0.8rem;
+      margin-left: 1rem;
+      border-radius: 5rem;
+      cursor: pointer;
+
+      &:hover {
+        filter: brightness(130%);
+      }
+    }
+  }
+
+  &__list {
+    list-style: none;
+    display: flex;
+    width: 24rem;
+    justify-content: space-between;
+    color: $color-secondary-dark;
+  }
+
+  &__tags {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  &__tag {
+    margin-left: 2.5rem;
+    cursor: pointer;
+
+    background-color: $color-secondary-filters;
+    padding: 1rem;
+    border-radius: 5px;
+    transition: $transition;
+
+    &:hover {
+      background-color: $color-primary;
+      color: $color-white;
+    }
+  }
+}

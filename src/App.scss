@@ -1,0 +1,29 @@
+$color-primary: hsl(180, 29%, 50%);
+$color-secondary-background: hsl(180, 52%, 96%);
+$color-secondary-filters: hsl(180, 31%, 95%);
+$color-secondary-dark: hsl(180, 8%, 52%);
+$color-secondary-darker: hsl(180, 14%, 20%);
+$color-white: #fff;
+$color-black: #000;
+$font-default: 15px;
+$font-family: "League Spartan", sans-serif;
+$transition: all .1s ease-in-out;
+
+*,
+*::after,
+*::before {
+  margin: 0;
+  padding: 0;
+  box-sizing: inherit;
+}
+
+html {
+  font-size: 62.5%;
+  box-sizing: border-box;
+}
+
+body {
+  font-size: $font-default;
+  font-family: $font-family;
+  background-color: $color-secondary-background;
+}
