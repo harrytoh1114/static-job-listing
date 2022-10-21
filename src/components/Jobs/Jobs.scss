@@ -16,7 +16,7 @@
     position: absolute;
   }
 
-  &:hover {
+  &--highlight {
     border-left: 3px solid $color-primary;
   }
 
@@ -40,6 +40,14 @@
     flex-direction: column;
     justify-content: space-between;
     margin-left: 3rem;
+  }
+
+  &__divider {
+    width: 100%;
+    height: 1px;
+    background-color: $color-secondary-dark;
+    border: none;
+    margin-top: 2rem;
   }
 
   &__company-tag {
@@ -66,6 +74,7 @@
   &__featured {
     margin-left: 2rem;
     color: $color-white;
+    text-transform: uppercase;
     display: flex;
     align-items: center;
 
@@ -113,6 +122,8 @@
     cursor: pointer;
 
     background-color: $color-secondary-filters;
+    color: $color-primary;
+    font-weight: 700;
     padding: 1rem;
     border-radius: 5px;
     transition: $transition;
@@ -120,6 +131,60 @@
     &:hover {
       background-color: $color-primary;
       color: $color-white;
+    }
+  }
+}
+
+@media only screen and (max-width: 1200px) {
+  .card {
+    padding: 4rem 2.5rem 2rem;
+    margin: 6rem auto;
+    width: 85%;
+    border-left: 6px solid transparent;
+
+    &--highlight {
+      border-left: 6px solid $color-primary;
+    }
+
+    &__inner {
+      flex-direction: column;
+      align-items: flex-start;
+    }
+
+    &__img {
+      position: absolute;
+      top: -4.5rem;
+      left: 1rem;
+      transform: scale(0.7);
+    }
+
+    &__detail {
+      margin-left: 0;
+      height: 9rem;
+    }
+
+    &__job {
+      font-size: 1.8rem;
+    }
+
+    &__featured {
+      font-size: 1.2rem;
+    }
+
+    &__list {
+      width: 20rem;
+    }
+
+    &__tags {
+      justify-content: unset;
+      flex-wrap: wrap;
+    }
+
+    &__tag {
+      margin-left: 0;
+      margin-top: 2rem;
+      margin-right: 2rem;
+      font-size: 1.4rem;
     }
   }
 }

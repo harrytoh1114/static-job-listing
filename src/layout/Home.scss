@@ -6,42 +6,48 @@
 
   &__header {
     background-color: #5da5a4;
+    width: 100%;
   }
 
   &__filter {
     background-color: $color-white;
     padding: 2rem 3.5rem;
+    color: $color-primary;
+    font-weight: 700;
     width: 80%;
     max-width: 120rem;
     border-radius: 5px;
     box-shadow: 0 1.5rem 2rem rgba($color-secondary-darker, 0.2);
     border-left: 3px solid transparent;
     transition: $transition;
-    position: absolute;
-    top: 11.5rem;
-    left: 50%;
-    transform: translateX(-50%);
+    margin: 0 auto;
+    margin-top: -5rem;
 
     display: flex;
-    align-items: center;
-    flex-wrap: wrap;
+    justify-content: space-between;
     animation: 0.2s fadeIn forwards ease-in-out;
 
     &-clear {
-        margin-left: auto;
-        border: none;
-        background-color: transparent;
+      margin-left: auto;
+      border: none;
+      background-color: transparent;
+      font-weight: 700;
+      color: $color-secondary-dark;
+      cursor: pointer;
+      transition: $transition;
+
+      &:hover {
         color: $color-primary;
         text-decoration: underline;
-        font-weight: 700;
-        // padding-bottom: 1px;
-        // border-bottom: 1px solid $color-primary;
-        cursor: pointer;
-
-        &:hover {
-
-        }
+      }
     }
+  }
+
+  &__filter-wrapper {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    width: 90%;
   }
 
   &__filter-item {
@@ -51,6 +57,10 @@
     cursor: pointer;
     transition: $transition;
     overflow: hidden;
+    margin: 1rem 0;
+    border: none;
+    color: $color-primary;
+    font-weight: 700;
 
     display: flex;
     align-items: center;
@@ -80,7 +90,7 @@
   }
 
   &__inner {
-    margin: 8rem 0;
+    margin: 4rem 0;
   }
 }
 
@@ -91,5 +101,12 @@
 
   100% {
     opacity: 1;
+  }
+}
+
+@media only screen and (max-width: 1200px) {
+  .job__filter {
+    padding: 1rem 1.5rem;
+    width: 85%;
   }
 }

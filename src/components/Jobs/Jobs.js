@@ -4,15 +4,16 @@ import { ReactComponent as Manage } from "../../images/manage.svg";
 import { ReactComponent as Account } from "../../images/account.svg";
 import { ReactComponent as MyHome } from "../../images/myhome.svg";
 import { ReactComponent as LoopStudios } from "../../images/loop-studios.svg";
-import { ReactComponent as FaceIt } from "../../images/faceit.svg";
+import FaceIt from "../../images/faceit.svg";
 import { ReactComponent as Shortly } from "../../images/shortly.svg";
 import { ReactComponent as Insure } from "../../images/insure.svg";
-import { ReactComponent as EyecamCo } from "../../images/eyecam-co.svg";
+import EyecamCo from "../../images/eyecam-co.svg";
 import { ReactComponent as AFC } from "../../images/the-air-filter-company.svg";
 
 import "./Jobs.scss";
 import { useDispatch } from "react-redux";
 import { filterAction } from "../../store/filter-slice";
+import useCurrentWidth from "../../hook/useCurrentWidth";
 
 const Jobs = ({
   company,
@@ -28,6 +29,9 @@ const Jobs = ({
 }) => {
   const [compLogo, setCompLogo] = useState();
   const [tags, setTags] = useState([]);
+  const [highlight, setHighlight] = useState();
+
+  const width = useCurrentWidth();
 
   const dispatch = useDispatch();
 
@@ -49,7 +53,7 @@ const Jobs = ({
         setCompLogo(<LoopStudios />);
         break;
       case "FaceIt":
-        setCompLogo(<FaceIt />);
+        setCompLogo(<img src={FaceIt} alt="Face It" />);
         break;
       case "Shortly":
         setCompLogo(<Shortly />);
@@ -58,7 +62,7 @@ const Jobs = ({
         setCompLogo(<Insure />);
         break;
       case "Eyecam Co.":
-        setCompLogo(<EyecamCo />);
+        setCompLogo(<img src={EyecamCo} alt="Eyecam Co" />);
         break;
       case "The Air Filter Company":
         setCompLogo(<AFC />);
@@ -66,8 +70,6 @@ const Jobs = ({
       default:
         break;
     }
-
-    console.log();
   }, [company]);
 
   useEffect(() => {
@@ -90,8 +92,16 @@ const Jobs = ({
     setTags(tagsArr);
   }, [role, level, language, tools]);
 
+  useEffect(() => {
+    if (tag.length > 1) {
+      setHighlight("card card--highlight");
+    } else {
+      setHighlight("card");
+    }
+  }, [tag]);
+
   return (
-    <div className="card">
+    <div className={highlight}>
       <div className="card__inner">
         <div className="card__main">
           <div className="card__img">{compLogo}</div>
@@ -133,6 +143,7 @@ const Jobs = ({
             </div>
           </div>
         </div>
+        {width < 1200 ? <hr className="card__divider" /> : ""}
         <div className="card__tags">
           {tags.map((t) => {
             return (

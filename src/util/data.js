@@ -1,5 +1,6 @@
 const data = [
   {
+    id: 1,
     company: "Photosnap",
     tag: ["New!", "Featured"],
     job: "Senior Frontend Developer",
@@ -13,6 +14,7 @@ const data = [
     filters: ["Frontend", "Senior", "HTML", "CSS", "JavaScript"]
   },
   {
+    id: 2,
     company: "Manage",
     tag: ["New!", "Featured"],
     job: "Fullstack Developer",
@@ -23,9 +25,9 @@ const data = [
     level: "Midweight",
     language: ["Python"],
     tools: ["React"],
-    filters: ["Fullstack", "Midweight", "Python", "React"]
   },
   {
+    id: 3,
     company: "Account",
     tag: ["New!"],
     job: "Junior Frontend Developer",
@@ -36,10 +38,9 @@ const data = [
     level: "Junior",
     language: ["JavaScript"],
     tools: ["React", "Sass"],
-    filters: ["Frontend", "Junior", "JavaScript", "React", "Sass"]
-
   },
   {
+    id: 4,
     company: "MyHome",
     tag: [],
     job: "Junior Frontend Developer",
@@ -50,9 +51,9 @@ const data = [
     level: "Junior",
     language: ["CSS", "JavaScript"],
     tools: [],
-    filters: ["Frontend", "Junior", "CSS", "JavaScript"]
   },
   {
+    id: 5,
     company: "Loop Studios",
     tag: [],
     job: "Software Engineer",
@@ -63,9 +64,9 @@ const data = [
     level: "Midweight",
     language: ["JavaScript", "Ruby"],
     tools: ["Sass"],
-    filters: ["Fullstack", "Midweight", "JavaScript", "Ruby", "Sass"]
   },
   {
+    id: 6,
     company: "FaceIt",
     tag: [],
     job: "Junior Backend Developer",
@@ -76,9 +77,9 @@ const data = [
     level: "Junior",
     language: ["Ruby"],
     tools: ["RoR"],
-    filters: ["Backend", "Junior", "Ruby", "RoR"]
   },
   {
+    id: 7,
     company: "Shortly",
     tag: [],
     job: "Junior Developer",
@@ -89,9 +90,9 @@ const data = [
     level: "Junior",
     language: ["HTML", "JavaScript"],
     tools: ["Sass"],
-    filters: ["Frontend", "Junior", "HTML", "JavaScript", "Sass"]
   },
   {
+    id: 8,
     company: "Insure",
     tag: [],
     job: "Junior Frontend Developer",
@@ -102,9 +103,9 @@ const data = [
     level: "Junior",
     language: ["JavaScript"],
     tools: ["Vue", "Sass"],
-    filters: ["Frontend", "Junior", "JavaScript", "Vue", "Sass"]
   },
   {
+    id: 9,
     company: "Eyecam Co.",
     tag: [],
     job: "Full Stack Engineer",
@@ -115,9 +116,9 @@ const data = [
     level: "Midweight",
     language: ["JavaScript", "Python"],
     tools: ["Django"],
-    filters: ["Fullstack", "Midweight", "JavaScript", "Python", "Django"]
   },
   {
+    id: 10,
     company: "The Air Filter Company",
     tag: [],
     job: "Front-end Dev",
@@ -128,7 +129,6 @@ const data = [
     level: "Junior",
     language: ["JavaScript"],
     tools: ["React", "Sass"],
-    filters: ["Frontend", "Junior", "JavaScript", "React", "Sass"]
   },
 ];
 

@@ -7,39 +7,23 @@ import Jobs from "../components/Jobs/Jobs";
 import data from "../util/data";
 import { useDispatch, useSelector } from "react-redux";
 import { filterAction } from "../store/filter-slice";
+import useCurrentWidth from "../hook/useCurrentWidth";
 
 const Home = () => {
-  const [width, setWidth] = useState(window.innerWidth);
-  const [header, setHeader] = useState(
-    <BgHeaderDesktop className="job__header" />
-  );
   const [filterResult, setFilterResult] = useState([]);
 
-  const detectWidth = () => {
-    setWidth(window.innerWidth);
-  };
+  const width = useCurrentWidth();
 
   const dispatch = useDispatch();
   const filter = useSelector((state) => state.filter.params);
 
   useEffect(() => {
-    window.addEventListener("resize", detectWidth);
-
-    if (width < 376) {
-      setHeader(<BgHeaderMobile className="job__header" />);
-    } else {
-      setHeader(<BgHeaderDesktop className="job__header" />);
-    }
-
-    return () => {
-      window.removeEventListener("resize", detectWidth);
-    };
-  }, [width]);
-
-  useEffect(() => {
     var resultArr = [];
     for (var i = 0; i < data.length; i++) {
-      if (filter.every((f) => data[i].filters.indexOf(f) > -1)) {
+      const dataFilter = [];
+      dataFilter.push(data[i].role, data[i].level, ...data[i].language, ...data[i].tools)
+
+      if (filter.every((f) => dataFilter.indexOf(f) > -1)) {
         resultArr.push(data[i]);
       }
     }
@@ -48,25 +32,31 @@ const Home = () => {
 
   return (
     <main className="job">
-      {header}
+      {width > 1200 ? (
+        <BgHeaderDesktop className="job__header" />
+      ) : (
+        <BgHeaderMobile className="job__header" />
+      )}
       {filter.length > 0 ? (
         <div className="job__filter">
-          {filter.map((f) => {
-            return (
-              <div
-                key={f}
-                onClick={() => {
-                  dispatch(filterAction.removeFilter(f));
-                }}
-                className="job__filter-item"
-              >
-                <div className="job__filter-item--text">{f}</div>
-                <div className="job__filter-item--remove">
-                  <IconRemove />
-                </div>
-              </div>
-            );
-          })}
+          <div className="job__filter-wrapper">
+            {filter.map((f) => {
+              return (
+                <button
+                  key={f}
+                  onClick={() => {
+                    dispatch(filterAction.removeFilter(f));
+                  }}
+                  className="job__filter-item"
+                >
+                  <div className="job__filter-item--text">{f}</div>
+                  <div className="job__filter-item--remove">
+                    <IconRemove />
+                  </div>
+                </button>
+              );
+            })}
+          </div>
           <button
             className="job__filter-clear"
             onClick={() => {
@@ -85,7 +75,7 @@ const Home = () => {
           ? filterResult.map((d) => {
               return (
                 <Jobs
-                  key={d.company}
+                  key={d.id}
                   company={d.company}
                   tag={d.tag}
                   job={d.job}
@@ -102,7 +92,7 @@ const Home = () => {
           : data.map((d) => {
               return (
                 <Jobs
-                  key={d.company}
+                  key={d.id}
                   company={d.company}
                   tag={d.tag}
                   job={d.job}
