@@ -143,7 +143,7 @@ const Jobs = ({
             </div>
           </div>
         </div>
-        {width < 1200 ? <hr className="card__divider" /> : ""}
+        {width < 1001 ? <hr className="card__divider" /> : ""}
         <div className="card__tags">
           {tags.map((t) => {
             return (

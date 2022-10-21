@@ -113,8 +113,10 @@
 
   &__tags {
     display: flex;
-    justify-content: space-between;
+    justify-content: flex-end;
     align-items: center;
+    flex-wrap: wrap;
+    height: 9rem;
   }
 
   &__tag {
@@ -135,7 +137,7 @@
   }
 }
 
-@media only screen and (max-width: 1200px) {
+@media only screen and (max-width: 1000px) {
   .card {
     padding: 4rem 2.5rem 2rem;
     margin: 6rem auto;
@@ -177,7 +179,7 @@
 
     &__tags {
       justify-content: unset;
-      flex-wrap: wrap;
+      height: auto;
     }
 
     &__tag {

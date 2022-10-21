@@ -32,7 +32,7 @@ const Home = () => {
 
   return (
     <main className="job">
-      {width > 1200 ? (
+      {width > 1000 ? (
         <BgHeaderDesktop className="job__header" />
       ) : (
         <BgHeaderMobile className="job__header" />
